@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace FuzzySearch.Core
+﻿namespace FuzzySearch.Core.Adapters
 {
     public class FuzzyAdapter<T>: IFuzzy where T : IShortFuzzy, new()
     {
-        private T _shortFuzzy;
+        private readonly T _shortFuzzy;
+        private const double EqualRate = 0.99d;
 
         public FuzzyAdapter()
         {
@@ -13,62 +12,63 @@ namespace FuzzySearch.Core
 
         public double GetRate(string arg1, string arg2)
         {
-            throw new NotImplementedException();
+            return GetRate(arg1, arg2, StringComparisonType.Ordinal, StringTransmutation.None);
         }
 
         public double GetRate(string arg1, string arg2, StringComparisonType compareType)
         {
-            throw new NotImplementedException();
+            return GetRate(arg1, arg2, compareType, StringTransmutation.None);
         }
 
         public double GetRate(string arg1, string arg2, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            return GetRate(arg1, arg2, StringComparisonType.Ordinal, transmutation);
         }
 
         public double GetRate(string arg1, string arg2, StringComparisonType compareType, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            return _shortFuzzy.GetRate(arg1, arg2, compareType, transmutation);
         }
 
         public bool IsEqual(string arg1, string arg2)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, StringComparisonType.Ordinal, StringTransmutation.None);
         }
 
         public bool IsEqual(string arg1, string arg2, StringComparisonType compareType)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, compareType, StringTransmutation.None);
         }
 
         public bool IsEqual(string arg1, string arg2, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, StringComparisonType.Ordinal, transmutation);
         }
 
         public bool IsEqual(string arg1, string arg2, StringComparisonType compareType, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, EqualRate, compareType, transmutation);
         }
 
         public bool IsEqual(string arg1, string arg2, double minimalRate)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, minimalRate, StringComparisonType.Ordinal, StringTransmutation.None);
         }
 
         public bool IsEqual(string arg1, string arg2, double minimalRate, StringComparisonType compareType)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, minimalRate, compareType, StringTransmutation.None);
         }
 
         public bool IsEqual(string arg1, string arg2, double minimalRate, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            return IsEqual(arg1, arg2, minimalRate, StringComparisonType.Ordinal, transmutation);
         }
 
         public bool IsEqual(string arg1, string arg2, double minimalRate, StringComparisonType compareType, StringTransmutation transmutation)
         {
-            throw new NotImplementedException();
+            if (minimalRate < 1E-5)  return true;
+            return GetRate(arg1, arg2, compareType, transmutation) > minimalRate;
         }
     }
 }

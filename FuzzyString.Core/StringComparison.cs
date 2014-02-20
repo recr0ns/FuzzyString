@@ -1,4 +1,5 @@
 ﻿using System;
+using FuzzySearch.Core.Adapters;
 using FuzzySearch.Core.Algorithms;
 
 namespace FuzzySearch.Core
