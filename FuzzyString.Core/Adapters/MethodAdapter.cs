@@ -50,6 +50,7 @@ namespace FuzzySearch.Core.Adapters
             {
                 AddSoundexToLine(ref line, initialValue);
             }
+            return line;
         }
 
         private void AddTransliterationToLine(ref IList<string> line, string value)

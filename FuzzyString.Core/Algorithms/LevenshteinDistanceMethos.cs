@@ -2,7 +2,7 @@ using System;
 
 namespace FuzzySearch.Core.Algorithms
 {
-    internal class LevenshteinDistanceMethos : ISearchMethod
+    internal class LevenshteinDistanceMethod : ISearchMethod
     {
         private static int ComputeLevenshteinDistance(string s, string t)
         {
@@ -39,7 +39,9 @@ namespace FuzzySearch.Core.Algorithms
 
         public double GetRate(string arg1, string arg2)
         {
-            var rate = (double)(2 * ComputeLevenshteinDistance(arg1, arg2)) / (arg1.Length + arg2.Length);
+            var maxLength = Math.Max(arg1.Length, arg2.Length);
+            if (maxLength == 0) return 0d;
+            var rate = (double)(maxLength - ComputeLevenshteinDistance(arg1, arg2)) / maxLength;
             return rate;
         }
     }
