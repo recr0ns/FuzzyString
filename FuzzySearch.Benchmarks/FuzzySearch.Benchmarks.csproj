@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Benchmarks\BenchmarksFactory.cs" />
     <Compile Include="Benchmarks\BenchmarkTest.cs" />
+    <Compile Include="HashHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

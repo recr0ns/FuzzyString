@@ -7,10 +7,12 @@ namespace FuzzySearch.Benchmarks
     {
         static void Main()
         {
-            var sw = Console.Out;
-            var tests = BenchmarksFactory.GetTest(sw);
-
-            Array.ForEach(tests, test => test.Action());
+            // if u want write to file create another TextWriter
+            using (var sw = Console.Out)
+            {
+                var tests = BenchmarksFactory.GetTest(sw);
+                Array.ForEach(tests, test => test.Action());
+            }
             Console.ReadKey();
         }
     }
