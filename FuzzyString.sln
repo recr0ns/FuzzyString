@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch.Test", "FuzzySe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch.Benchmarks", "FuzzySearch.Benchmarks\FuzzySearch.Benchmarks.csproj", "{03F7C1DE-3B3D-40AF-9078-4BCB5669A87E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch.PhoneticAlgorithms", "FuzzySearch.PhoneticAlgorithms\FuzzySearch.PhoneticAlgorithms.csproj", "{D46D142D-9B20-47CB-8BEF-432387D7B57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch.PhoneticAlgorithms.Test", "FuzzySearch.PhoneticAlgorithms.Test\FuzzySearch.PhoneticAlgorithms.Test.csproj", "{121CA7D2-0260-419A-B042-3BBF76356B14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{03F7C1DE-3B3D-40AF-9078-4BCB5669A87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F7C1DE-3B3D-40AF-9078-4BCB5669A87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F7C1DE-3B3D-40AF-9078-4BCB5669A87E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46D142D-9B20-47CB-8BEF-432387D7B57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46D142D-9B20-47CB-8BEF-432387D7B57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46D142D-9B20-47CB-8BEF-432387D7B57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46D142D-9B20-47CB-8BEF-432387D7B57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{121CA7D2-0260-419A-B042-3BBF76356B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121CA7D2-0260-419A-B042-3BBF76356B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121CA7D2-0260-419A-B042-3BBF76356B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121CA7D2-0260-419A-B042-3BBF76356B14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
