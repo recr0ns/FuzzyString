@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FuzzySearch.Core.Algorithms;
 using FuzzySearch.Core.Utils;
+using FuzzySearch.Core.Utils.Transliteration;
 
 namespace FuzzySearch.Core.Adapters
 {
@@ -55,7 +56,7 @@ namespace FuzzySearch.Core.Adapters
 
         private void AddTransliterationToLine(ref IList<string> line, string value)
         {
-            var translit = Transliteration.Convert(value);
+            var translit = Transliteration.Convert(value, RussianTransliteration.Create());
             if (!line.Contains(translit)) line.Add(translit);
         }
 

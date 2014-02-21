@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="LevenshteinDistanceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\TransliterationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FuzzyString.Core\FuzzySearch.Core.csproj">

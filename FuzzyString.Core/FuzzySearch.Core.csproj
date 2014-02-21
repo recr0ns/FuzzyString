@@ -51,7 +51,7 @@
     <Compile Include="ArgumentTypes\StringComparisonType.cs" />
     <Compile Include="ArgumentTypes\StringTransmutation.cs" />
     <Compile Include="Utils\Soundex.cs" />
-    <Compile Include="Utils\Transliteration.cs" />
+    <Compile Include="Utils\Transliteration\Transliteration.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
