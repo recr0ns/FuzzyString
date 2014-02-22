@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\ISearchMethod.cs" />
     <Compile Include="Adapters\MethodAdapter.cs" />
-    <Compile Include="Algorithms\LevenshteinDistanceMethos.cs" />
+    <Compile Include="Algorithms\LevenshteinDistanceMethod.cs" />
     <Compile Include="Utils\ConstructorHelper.cs" />
     <Compile Include="Adapters\FuzzyAdapter.cs" />
     <Compile Include="IFuzzy.cs" />
