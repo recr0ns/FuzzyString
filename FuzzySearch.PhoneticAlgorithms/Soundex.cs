@@ -7,7 +7,7 @@ namespace FuzzySearch.PhoneticAlgorithms
 {
     public class Soundex
     {
-        private static readonly char[] IgnoredSymbols = { 'a', 'o', 'u', 'e', 'i', 'y', 'h', 'w' };
+        private static readonly char[] IgnoredSymbols = { 'A', 'O', 'U', 'E', 'I', 'Y', 'H', 'W' };
         public static string Convert(string input)
         {
             return Convert(input, SoundexType.Simple);
@@ -35,7 +35,7 @@ namespace FuzzySearch.PhoneticAlgorithms
             if (string.IsNullOrWhiteSpace(input) || input.Length <= 1) return input;
             var sb = new StringBuilder();
             sb.Append(input[0]);
-            input = input.ToLower();
+            input = SoundexUtils.Clean(input);
             var prevCh = input[0];
             var lastCode = '\0';
             for (int index = 1, l = 1; index < input.Length; ++index)
@@ -88,24 +88,24 @@ namespace FuzzySearch.PhoneticAlgorithms
         {
             _table = new Hashtable()
             {
-                {'b', '1'},
-                {'p', '1'},
-                {'f', '1'},
-                {'v', '1'},
-                {'c', '2'},
-                {'s', '2'},
-                {'k', '2'},
-                {'j', '2'},
-                {'g', '2'},
-                {'q', '2'},
-                {'x', '2'},
-                {'z', '2'},
-                {'d', '3'},
-                {'t', '3'},
-                {'l', '4'},
-                {'m', '5'},
-                {'n', '5'},
-                {'r', '6'}
+                {'B', '1'},
+                {'P', '1'},
+                {'F', '1'},
+                {'V', '1'},
+                {'C', '2'},
+                {'S', '2'},
+                {'K', '2'},
+                {'J', '2'},
+                {'G', '2'},
+                {'Q', '2'},
+                {'X', '2'},
+                {'Z', '2'},
+                {'D', '3'},
+                {'T', '3'},
+                {'L', '4'},
+                {'M', '5'},
+                {'N', '5'},
+                {'R', '6'}
             };
         }
 
@@ -133,24 +133,24 @@ namespace FuzzySearch.PhoneticAlgorithms
         {
             _table = new Hashtable()
             {
-                {'b', '1'},
-                {'p', '1'},
-                {'f', '2'},
-                {'v', '2'},
-                {'c', '3'},
-                {'s', '3'},
-                {'k', '3'},
-                {'j', '4'},
-                {'g', '4'},
-                {'q', '5'},
-                {'x', '5'},
-                {'z', '5'},
-                {'d', '6'},
-                {'t', '6'},
-                {'l', '7'},
-                {'m', '8'},
-                {'n', '8'},
-                {'r', '9'}
+                {'B', '1'},
+                {'P', '1'},
+                {'F', '2'},
+                {'V', '2'},
+                {'C', '3'},
+                {'S', '3'},
+                {'K', '3'},
+                {'J', '4'},
+                {'G', '4'},
+                {'Q', '5'},
+                {'X', '5'},
+                {'Z', '5'},
+                {'D', '6'},
+                {'T', '6'},
+                {'L', '7'},
+                {'M', '8'},
+                {'N', '8'},
+                {'R', '9'}
             };
         }
 
