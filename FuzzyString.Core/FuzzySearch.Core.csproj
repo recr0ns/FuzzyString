@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StringFormatter.cs" />
     <Compile Include="Algorithms\ISearchMethod.cs" />
     <Compile Include="Adapters\MethodAdapter.cs" />
     <Compile Include="Algorithms\LevenshteinDistanceMethod.cs" />
@@ -50,8 +51,13 @@
     <Compile Include="StringComparison.cs" />
     <Compile Include="ArgumentTypes\StringComparisonType.cs" />
     <Compile Include="ArgumentTypes\StringTransmutation.cs" />
-    <Compile Include="Utils\Soundex.cs" />
     <Compile Include="Utils\Transliteration\Transliteration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FuzzySearch.PhoneticAlgorithms\FuzzySearch.PhoneticAlgorithms.csproj">
+      <Project>{d46d142d-9b20-47cb-8bef-432387d7b57f}</Project>
+      <Name>FuzzySearch.PhoneticAlgorithms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
