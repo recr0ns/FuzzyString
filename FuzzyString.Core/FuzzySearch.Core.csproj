@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\DiceCoefficientMethod.cs" />
+    <Compile Include="Algorithms\LongestCommonSubsequenceMethod.cs" />
     <Compile Include="StringFormatter.cs" />
     <Compile Include="Algorithms\ISearchMethod.cs" />
     <Compile Include="Adapters\MethodAdapter.cs" />

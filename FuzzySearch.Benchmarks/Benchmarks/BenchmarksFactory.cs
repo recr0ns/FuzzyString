@@ -11,6 +11,7 @@ namespace FuzzySearch.Benchmarks.Benchmarks
             {
                 new BenchmarkTest(sw, "Levenshtein Distance", StringComparison.LevenshteinDistance), 
                 new BenchmarkTest(sw, "Dice Coefficient", StringComparison.DiceCoefficient), 
+                new BenchmarkTest(sw, "Longest Common Subsequence", StringComparison.LongestCommonSubsequence), 
             };
             return tests;
         }
