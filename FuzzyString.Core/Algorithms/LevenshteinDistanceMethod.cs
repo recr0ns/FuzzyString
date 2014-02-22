@@ -1,48 +1,68 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 using System;
 
 namespace FuzzySearch.Core.Algorithms
 {
     internal class LevenshteinDistanceMethod : ISearchMethod
     {
-        private static int ComputeLevenshteinDistance(string s, string t)
+        private static double ComputeLevenshteinDistance(string arg1, string arg2)
         {
-            var n = s.Length;
-            var m = t.Length;
-            var d = new int[n + 1, m + 1];
+            var sa = arg1.ToCharArray();
+            var n = sa.Length;
+            var p = new int[n + 1];
+            var d = new int[n + 1];
+            var m = arg2.Length;
 
-            // Step 1
-            if (n == 0) { return m; }
-            if (m == 0) { return n; }
-
-            // Step 2
-            for (var i = 0; i <= n; d[i, 0] = i++) { }
-            for (var j = 0; j <= m; d[0, j] = j++) { }
-
-            // Step 3
-            for (var i = 1; i <= n; i++)
+            if (n == 0 || m == 0)
             {
-                //Step 4
-                for (var j = 1; j <= m; j++)
-                {
-                    // Step 5
-                    var cost = (t[j - 1] == s[i - 1]) ? 0 : 1;
-
-                    // Step 6
-                    d[i, j] = Math.Min(
-                        Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
-                        d[i - 1, j - 1] + cost);
-                }
+                return n == m ? 1 : 0;
             }
-            // Step 7
-            return d[n, m];
+
+            int i; 
+            int j;
+
+            for (i = 0; i <= n; i++)
+            {
+                p[i] = i;
+            }
+
+            for (j = 1; j <= m; j++)
+            {
+                var t_j = arg2[j - 1];
+                d[0] = j;
+
+                for (i = 1; i <= n; i++)
+                {
+                    var cost = sa[i - 1] == t_j ? 0 : 1;
+                    d[i] = Math.Min(Math.Min(d[i - 1] + 1, p[i] + 1), p[i - 1] + cost);
+                }
+
+                var _d = p;
+                p = d;
+                d = _d;
+            }
+
+            return 1.0d - ((double) p[n]/Math.Max(arg2.Length, sa.Length));
         }
 
         public double GetRate(string arg1, string arg2)
         {
-            var maxLength = Math.Max(arg1.Length, arg2.Length);
-            if (maxLength == 0) return 0d;
-            var rate = (double)(maxLength - ComputeLevenshteinDistance(arg1, arg2)) / maxLength;
-            return rate;
+            return ComputeLevenshteinDistance(arg1, arg2);
         }
     }
 }
