@@ -4,12 +4,12 @@ using NUnit.Framework;
 namespace FuzzySearch.Test
 {
     [TestFixture]
-    public class LevenshteinDistanceTests : MethodTests
+    public class DiceCoefficientTests : MethodTests
     {
         [SetUp]
         public override void Initialize()
         {
-            method = StringComparison.LevenshteinDistance;
+            method = StringComparison.DiceCoefficient;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace FuzzySearch.Benchmarks.Benchmarks
             var tests = new []
             {
                 new BenchmarkTest(sw, "Levenshtein Distance", StringComparison.LevenshteinDistance), 
+                new BenchmarkTest(sw, "Dice Coefficient", StringComparison.DiceCoefficient), 
             };
             return tests;
         }
